@@ -58,3 +58,35 @@ func (e OrderPayedFor) Raw() ([]byte, error) {
 func (e OrderPayedFor) Type() contracts.EventType {
 	return contracts.OrderPayedFor
 }
+
+type FundsAdded struct {
+	UserID uint64 `json:"user_id"`
+}
+
+func (e FundsAdded) Raw() ([]byte, error) {
+	raw, err := json.Marshal(&e)
+	if err != nil {
+		return nil, err
+	}
+	return raw, nil
+}
+
+func (e FundsAdded) Type() contracts.EventType {
+	return contracts.FundsAdded
+}
+
+type FundsDebitted struct {
+	UserID uint64 `json:"user_id"`
+}
+
+func (e FundsDebitted) Raw() ([]byte, error) {
+	raw, err := json.Marshal(&e)
+	if err != nil {
+		return nil, err
+	}
+	return raw, nil
+}
+
+func (e FundsDebitted) Type() contracts.EventType {
+	return contracts.FundsDebitted
+}
