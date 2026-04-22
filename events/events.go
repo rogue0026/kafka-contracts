@@ -28,6 +28,7 @@ func (e UserCreated) Type() contracts.EventType {
 }
 
 type OrderCreated struct {
+	UserID  uint64 `json:"user_id"`
 	OrderID uint64 `json:"order_id"`
 }
 
